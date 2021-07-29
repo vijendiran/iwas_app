@@ -1,0 +1,21 @@
+<div  class="py-3">
+	<div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN
+	</div>
+	<ul class="list-unstyled">
+		<li *ngFor="let menu of categories">
+			<a *ngIf="!menu.isDropDownMenu" class='text-muted nav-link' href="#"><span>{{ menu.description }}</span></a>
+
+			<a href='#{{menu.dropDownTarget}}' *ngIf="menu.isDropDownMenu" class='text-muted nav-link'
+				data-toggle='collapse' data-target='#{{menu.dropDownTarget}}' [attr.aria-controls]='menu.dropDownTarget'
+				attr.aria-label='Toggle {{menu.dropDownTarget}}'
+				aria-expanded='false'><span>{{ menu.description }}</span></a>
+			<div *ngIf="menu.isDropDownMenu" class="collapse" [id]="menu.dropDownTarget">
+				<ul class=" list-unstyled border-left border-primary border-thick">
+					<li *ngFor="let subMenu of menu.subMenuList">
+						<a class='text-muted ml-5 nav-link' href="#"><span>{{ subMenu }}</span></a>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div>

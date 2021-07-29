@@ -1,0 +1,37 @@
+<nav class="navbar fixed-top navbar-light bg-light mainNav">
+    
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <div class="col-1 menu-padd">
+                <!-- <i class='bx bx-menu' id="btn" (click)="CloseMenuClick()"></i>
+                <mat-icon (click)="pageRefresh()">refresh</mat-icon> -->
+                <app-mobilenav class="d-monly"></app-mobilenav>
+            </div>
+            <div class="col-2  menu-padd md-none">
+              <i class='bx bx-menu' id="btn" (click)="CloseMenuClick()"></i>
+              <mat-icon (click)="pageRefresh()">refresh</mat-icon>
+            </div>
+            <div class="col-3">&nbsp;</div>
+            <div class="col-3 align-set-icon">
+                <span class="mx-30">
+                    <mat-icon>help</mat-icon>
+                </span>
+                <select name="" id="" class="mx-30" (change)="selectChangeHandler($event)">
+                    <option value="en">{{ 'login.english' | translate}}</option>
+                    <option value="ta">{{ 'login.tamil' | translate}}</option>
+                </select>
+                <app-toggle></app-toggle>
+            </div>
+            <div class="col-1 admin-icon">
+                <span class="large-text">IWAS</span>
+                <span class="small-text">Admin</span>
+                <span [matMenuTriggerFor]="menu">
+                    <mat-icon class="acc-icon">account_circle</mat-icon>
+                </span>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="logOut()">Logout</button>
+                </mat-menu>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</nav>

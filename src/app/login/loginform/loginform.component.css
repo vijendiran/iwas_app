@@ -1,0 +1,30 @@
+.banner {
+    width:100%;
+    height:550px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center center;
+    } 
+    .full-form{
+        width: 100%;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex{
+        background-color: red !important;
+    }
+    select{
+        border: none;
+        outline: none;
+    }
+    .padd-20{
+        padding: 0 20px;
+    }
+    .iwas-btn{
+        background: #087335 !important;
+    }
+.d-none{
+    display: none;
+}
+.resHome{
+    height:100vh;
+    width: 100%;
+}

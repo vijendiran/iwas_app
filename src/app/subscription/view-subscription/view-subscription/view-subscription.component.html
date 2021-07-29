@@ -1,0 +1,62 @@
+<app-topbar></app-topbar>
+<app-sidebar></app-sidebar>
+<div class="Main_content">
+<div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. abc" #input>
+            <mat-label>Search</mat-label>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4" >
+          <button mat-raised-button style="margin: 5px;" (click)="exporter.exportTable('xlsx', {fileName:'SubscriptionForm', sheet: 'Subscription', Props: {Author: 'Abdul'}})">Excel</button>
+          <button mat-raised-button style="margin: 5px;" (click)="exporter.exportTable('csv')">Csv</button>
+          <button mat-raised-button style="margin: 5px;" (click)="exporter.exportTable('json')">Json</button>
+          <button mat-raised-button style="margin: 5px;" (click)="exporter.exportTable('other')">Other</button>
+        </div>
+      </div>
+        
+      <div class="example-container mat-elevation-z8  ">
+        <table mat-table matSort matTableExporter  [dataSource]="dataSource" #exporter="matTableExporter">
+    
+          
+          <ng-container matColumnDef="memberNumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Member Number</th>
+            <td mat-cell *matCellDef="let element"> {{element.memberNumber}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="joiningDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Joining Date</th>
+              <td mat-cell *matCellDef="let element"> {{element.joiningDate}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="memberName">
+              <th mat-header-cell *matHeaderCellDef>Member Name</th>
+              <td mat-cell *matCellDef="let element"> {{element.memberName}} </td>
+            </ng-container>
+    
+    
+          
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Amount</th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+          </ng-container>
+          <ng-container matColumnDef="subscriptionYear">
+            <th mat-header-cell *matHeaderCellDef>SubscriptionYear</th>
+            <td mat-cell *matCellDef="let element"> {{element.subscriptionYear}} </td>
+          </ng-container>
+    
+          
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+</div>
+    

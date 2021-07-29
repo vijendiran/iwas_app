@@ -1,0 +1,86 @@
+
+<app-topbar></app-topbar>
+<app-sidebar></app-sidebar>
+<div class="Main_content">
+    <div class="container">
+        <form [formGroup]="dashboardData">
+        <div class="row ">
+          <div class="card-holder col-md-4">
+            <div class="basic-card-holder general-service-card-item">
+              <h2>Total Member</h2>
+              <div class="booking-detail">
+                <!-- <mat-label [value]="totalMember">{{totalMember}}</mat-label> -->
+                <p><span class="cost">{{totalMember}}</span> 
+              </div>
+              <app-calender></app-calender>
+              <div class="row">
+                <div class="col-md-6">
+                  <button mat-button class="border" routerLink="{{routes.viewMember}}">Clarify</button>
+                </div>
+                <div class="col-md-6">
+                  <button mat-button class="border" routerLink="{{routes.createMember}}">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-holder col-md-4">
+            <div class="basic-card-holder general-service-card-item">
+              <h2>Total Amount</h2>
+              <div class="booking-detail">
+                
+                  <p><span class="cost">{{totalAmount}}</span>
+                    <span class="currency">INR</span></p>
+      
+              </div>
+              <app-calender></app-calender>
+              <div class="row">
+                <div class="col-md-6">
+                  <button mat-button class="border" routerLink="{{routes.viewSubscribe}}">Clarify</button>
+                </div>
+                <div class="col-md-6">
+                  <button mat-button class="border" routerLink="{{routes.createSubscribe}}">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-holder col-md-4">
+            <div class="basic-card-holder general-service-card-item">
+              <h2>Newly Joined(After 2020)</h2>
+              <div class="booking-detail">
+                <p><span class="cost" >{{currentYearJoined}}</span></p>
+              </div>
+              <app-calender></app-calender>
+              <div class="row">
+                <div class="col-md-6">
+                  <button mat-button class="border" routerLink="{{routes.viewMember}}">Clarify</button>
+                </div>
+                <div class="col-md-6">
+                  <button mat-button class="border" routerLink="{{routes.createMember}}">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="card-holder col-md-4">
+            <div class="basic-card-holder general-service-card-item">
+              <h2>Subscription Amount(After 2020)</h2>
+              <div class="booking-detail">
+                <p><span class="cost">{{currentYearAmount}}</span>
+                  <span class="currency">INR</span></p>
+              </div>
+              <app-calender></app-calender>
+              <div class="row">
+                <div class="col-md-6">
+                  <button mat-button class="border" routerLink="{{routes.viewSubscribe}}">Clarify</button>
+                </div>
+                <div class="col-md-6">
+                  <button mat-button class="border" routerLink="{{routes.createSubscribe}}">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+</div>

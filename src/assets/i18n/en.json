@@ -1,0 +1,16 @@
+{
+    "login":
+    {
+        "welcome":"Welcome Back!",
+        "tamil":"Tamil",
+        "english":"English",
+        "dashboard":"Dashboard",
+        "Membership":"Membership",
+        "View_Member":"View Member",
+        "euName":"Enter your name",
+        "euPassword":"Enter your password",
+        "fPassword":"Forgot Password",
+        "signin":"Sign In"
+
+    }
+}

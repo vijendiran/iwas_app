@@ -1,0 +1,46 @@
+<app-toolbar></app-toolbar>
+<div class="container-fluid resHome">
+<div class="container">
+<div class="row">
+    <div class="col-md-4 inverted">
+        <div class="text-center">
+            <img src="assets/img/logo.png" alt="" class="img-fluid">
+            <h2 class="text-center">{{ 'login.welcome' | translate}}</h2>
+        </div>
+        
+        <div>
+            <form action="" [formGroup]="userForm" (ngSubmit)="onsubmitsform()">
+                  <div class="example-container">
+                    <mat-form-field appearance="fill" class="full-form">
+                      <mat-label>{{ 'login.euName' | translate}}</mat-label>
+                      <input matInput  type="text" formControlName="userId" placeholder="{{ 'login.euName' | translate}}">
+                      <mat-icon matSuffix>person</mat-icon>
+                      <mat-error *ngIf="userId.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="full-form">
+                      <mat-label>{{ 'login.euPassword' | translate}}</mat-label>
+                      <input matInput type="password" [type]="hide ? 'password' : 'text'" formControlName='password' placeholder="{{ 'login.euPassword' | translate}}"> 
+                      <mat-error *ngIf="password.invalid">{{gerErrorForpwd()}}</mat-error>
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </div>
+                  <mat-card-actions>
+                      <p> 
+                        <a (click)="onForgotPasswordClick($event)" class="text-decoration-none text-dark">{{ 'login.fPassword' | translate}}</a></p>
+                   <button mat-raised-button type="submit" color="primary" class="w-100 p-2 iwas-btn">{{ 'login.signin' | translate}}</button>
+                  </mat-card-actions>
+           
+              </form>
+        </div>
+    </div>
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-6">
+        <div class="banner inverted m-none" style="background-image: url('assets/img/banner.png');">
+           
+        </div>
+    </div>
+</div>
+</div>
+</div>

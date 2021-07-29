@@ -1,0 +1,98 @@
+<app-topbar></app-topbar>
+<app-sidebar></app-sidebar>
+<div class="Main_content">
+<div class="container cm-fluid">
+    <div class="row">
+        <div class="col-md-12 no-padd">
+            <p class="mem-head">Subscription</p>
+            <hr>
+            <div>
+                <form action="" [formGroup]="subscriptionForm">
+                  <div>
+                    <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                      <mat-label>Payment</mat-label>
+                      <input matInput placeholder="500" value="" formControlName="payment">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                      <mat-label>Year</mat-label>
+                      <input matInput placeholder="2021" value="" formControlName="subYear">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                      <mat-label>Member Number</mat-label>
+                      <input matInput placeholder="" value="" formControlName="memberNumber">
+                      <!-- <mat-error *ngIf="memNum.invalid">{{gerErrorForpwd()}}</mat-error> -->
+                    </mat-form-field>
+                  </div>
+                    <div class="">
+                    <mat-form-field class="col-4 m-20">
+                        <mat-label>Received a date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="receivedDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                  <!-- <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                    <mat-label>Member Number</mat-label>
+                    <input matInput placeholder="" value="" formControlName="memberNumber">
+                  </mat-form-field> -->
+                  <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                    <mat-label>Designation</mat-label>
+                    <input matInput placeholder="" value="" formControlName="designation">
+                    <!-- <mat-error *ngIf="memRole.invalid">{{getErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Member Name</mat-label>
+                        <input matInput placeholder="" value="" formControlName="memberName">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Father Name</mat-label>
+                        <input matInput placeholder="" value="" formControlName="fatherName">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Mobile Number</mat-label>
+                        <input matInput placeholder="" value="" formControlName="mobileNumber">
+                      </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Whatsapp Number</mat-label>
+                        <input matInput placeholder="" value="" formControlName="whatsappNumber">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Aadhar Number</mat-label>
+                        <input matInput placeholder="" value="" formControlName="aadharNumber">
+                        <button mat-button matSuffix mat-icon-button (click)="getValueByAadharNumber()">
+                          <mat-icon>search</mat-icon>
+                        </button>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Permanet Address</mat-label>
+                        <input matInput placeholder="" value="" formControlName="permanentAddress">
+                      </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Permanent City</mat-label>
+                        <input matInput placeholder="" value="" formControlName="permanentCity">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Current Address</mat-label>
+                        <input matInput placeholder="" value="" formControlName="currentAddress">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                        <mat-label>Current City</mat-label>
+                        <input matInput placeholder="" value="" formControlName="currentCity">
+                      </mat-form-field>
+                </div>
+                <div class="col-md-6 m-20">
+                    <button class="gr-btn inverted" (click)="submit()">Subscribe</button>
+                    <button class="gray-btn">Cancel</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

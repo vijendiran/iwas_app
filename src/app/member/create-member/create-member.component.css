@@ -1,0 +1,57 @@
+.mat-sidenav-container{
+height: 100%;
+}
+.mat-sidenav,.mat-sidenav-content{
+    padding: 16px;
+}
+.mat-sidenav{
+    background-color:#f2f2f2;
+    width: 200px;
+}
+.m-20{
+    padding: 20px;
+}
+ul{
+    padding: 0;
+}
+ul li{
+    list-style-type: none;
+}
+ul li a{
+    text-decoration: none;
+    color: #333;
+}
+.small-div{
+width: 80px;
+visibility: visible;
+transition: ease-in-out;
+}
+.mem-head{
+    font-size: 20px;
+    padding: 20px 0px 0 20px;
+    color: green;
+}
+.gr-btn{
+    padding: 15px 40px;
+    box-shadow: none;
+    border: none;
+    background: green;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 20px;
+}
+.gray-btn{
+    padding: 15px 40px;
+    box-shadow: none;
+    border: none;
+    /* background: green; */
+    color: #333;
+    border-radius: 5px;
+    margin: 0 20px;
+}
+.mat-drawer-content{
+overflow-x: hidden;
+}
+.d-none,.d-monly{
+    display: none;
+}

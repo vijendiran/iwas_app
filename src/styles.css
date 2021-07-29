@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+.dark {
+    filter: invert(1) hue-rotate(180deg)
+  }
+  .invert{
+    filter: invert(1) hue-rotate(180deg)
+  }
+html, body {width: 100%;
+    height: 100%;scroll-behavior: smooth;overflow-x: hidden;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-form-field-appearance-fill .mat-form-field-flex{
+    background-color: transparent;
+   }
+   .mat-slide-toggle-thumb::before {
+    content:url('assets/img/dark.png'); /* with class ModalCarrot ??*/
+    position:absolute; /*or absolute*/
+    z-index:100000; /*a number that's more than the modal box*/
+    padding: 1px 0;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: rgb(0 0 0 / 54%);
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: #ffffff;
+}
+@media only screen and (max-width:768px){
+    .mat-form-field{
+        display: block !important;
+        width: 100% !important;
+    }
+    nav{
+        display: none !important;
+    }
+}
+.mat-drawer-inner-container{
+    background: #f2f2f2 !important;
+}
+/* .mat-drawer-content{
+    overflow-x: hidden;
+} */
+.Main_content {
+margin-left: 180px;
+background: #fff;
+}
+.main-txt{
+    width: 100% !important;
+    position: absolute !important;
+    left: 5% !important;
+  }
+  .mat-menu-panel{
+    margin: 25px 0;
+  }
+  .d-monly{
+      display: none;
+  }
+  @media only screen and (max-width:768px){
+    .m-none,.sidebar,.large-text,.small-text,.md-none{
+        display: none !important;
+    }
+    .d-monly{
+        display: block !important;
+    }
+    .Main_content{
+        left: 0% !important;
+        margin-left: 0 !important;
+    }
+    .mainNav{
+        display: flex !important;
+        left: 0 !important;
+    }
+    .mx-30{
+        margin: 0 10px !important;
+    }
+    .mat-menu-panel {
+        margin: 55px -35px 0px 0px;
+        padding: 0px;
+    }
+    .admin-icon{
+        position: relative !important;
+        left: 55px !important;
+        bottom: 23px !important;
+        display: block !important;
+    }
+   .navbar{
+       padding: 0 !important;
+       position: absolute !important;
+       display: flex !important;
+       top: 5px !important;
+      
+   }
+   .m-navbar{
+    width: 96% !important;
+   }
+   .navbar-nav{
+       background-color: #fff !important;
+   }
+  }
+  .remove-margin {
+    margin-left: 0 !important;
+    transition: all 0.5s ease-in;
+}

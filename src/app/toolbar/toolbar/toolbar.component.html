@@ -1,0 +1,15 @@
+<nav>
+    <div class="container-fluid shadow p-3 bg-white rounded">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-end">
+                    <select name="" id=""  (change)="selectChangeHandler($event)">
+                        <option value="en">{{ 'login.english' | translate}}</option>
+                        <option value="ta">{{ 'login.tamil' | translate}}</option>
+                    </select>
+                    <app-toggle></app-toggle>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

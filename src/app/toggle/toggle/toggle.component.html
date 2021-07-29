@@ -1,0 +1,4 @@
+<form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit(formGroup.value)" ngNativeValidate>
+        <mat-slide-toggle (change)="onChange($event)" [checked]="filteringSchedule" formControlName="enableDark">
+          </mat-slide-toggle>
+  </form>

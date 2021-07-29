@@ -1,0 +1,78 @@
+<div class="sidebar open">
+    <div class="logo-details">
+      <!-- <i class='bx bxl-c-plus-plus icon'></i> -->
+        <!-- <div class="logo_name">CodingLab</div> -->
+        <div class="">
+          <img src="assets/img/logo.png" alt="" class="inverted" width="80px" height="80px">
+      </div>
+        <!-- <i class='bx bx-menu' id="btn" (click)="CloseMenuClick()"></i> -->
+    </div>
+    <ul class="nav-list">
+
+      <li>
+        <a [routerLink]="['/dashboard']" routerLinkActive="active">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">{{'login.dashboard' | translate}}</span>
+        </a>
+         <span class="tooltip"><a [routerLink]="['/dashboard']" routerLinkActive="active">{{'login.dashboard' | translate}}</a></span>
+      </li>
+      <li>
+       <a (click)="subsMenu($event)">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">{{'login.Membership' | translate}}</span><mat-icon color="primary" class="matDropIcon">arrow_drop_down</mat-icon>
+       </a>
+       <span class="tooltip">
+        Member 
+         <ul>
+           <li><a  [routerLink]="['/create-member']" routerLinkActive="active">Create Member</a></li>
+           <li><a [routerLink]="['/view-member']" routerLinkActive="active">View Member</a></li>
+         </ul>
+       </span>
+       <ul class="thirdlvl d-none" >
+        <li>
+          <a  [routerLink]="['/create-member']" routerLinkActive="active">
+            <i class="bx"><mat-icon>person_add_alt</mat-icon></i>
+            <span class="links_name">Create Member</span>
+    
+          </a>
+         </li>
+         <li>
+          <a [routerLink]="['/view-member']" routerLinkActive="active">
+            <i class='bx'><mat-icon>person_search</mat-icon></i>
+            <span class="links_name">View Member</span>
+    
+          </a>
+         </li>
+       </ul>
+     </li>
+     <li>
+      <a (click)="subsMenus($event)">
+        <i class='bx'><mat-icon>card_membership</mat-icon></i>
+        <span class="links_name">Subscription</span><mat-icon color="primary" class="matDropIcon">arrow_drop_down</mat-icon>
+      </a>
+      <span class="tooltip">
+        Subscription 
+        <ul>
+          <li><a [routerLink]="['/create-subscription']" routerLinkActive="active">Create Subscription</a></li>
+          <li><a [routerLink]="['/view-subscription']" routerLinkActive="active">View Subscription</a></li>
+        </ul>
+      </span>
+      <ul class="thirdlvls d-none" >
+       <li>
+         <a [routerLink]="['/create-subscription']" routerLinkActive="active">
+          <i class="bx"><mat-icon>person_add_alt</mat-icon></i>
+           <span class="links_name">Create Subscription</span>
+   
+         </a>
+        </li>
+        <li>
+         <a  [routerLink]="['/view-subscription']" routerLinkActive="active">
+          <i class='bx'><mat-icon>person_search</mat-icon></i>
+           <span class="links_name">View Subscription</span>
+   
+         </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+  </div>
