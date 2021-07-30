@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { LanguageService } from 'src/app/services/language.service';
 import { FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-view-subscription',
@@ -26,8 +26,9 @@ export class ViewSubscriptionComponent implements AfterViewInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   ngAfterViewInit() {
-
-    this.httpClient.get<any>(this.baseUrl+'/get/subscription'
+    let tokens = localStorage.getItem("access_token");
+    let header = new HttpHeaders().set("Authorization", "Bearer " +tokens);
+    this.httpClient.get<any>(this.baseUrl+'/v1/get/all-subscription',{'headers':header}
     ).subscribe(data => {
       console.log(data);
       //console.log("done");

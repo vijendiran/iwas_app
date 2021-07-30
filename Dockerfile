@@ -8,7 +8,7 @@ WORKDIR /usr/local/app
 
 # Add the source code to app
 COPY ./ /usr/local/app/
-
+RUN apt-get update -qq && apt-get install -y build-essential nodejs
 # Install all the dependencies
 RUN npm install
 
