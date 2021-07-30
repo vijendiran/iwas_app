@@ -43,7 +43,7 @@
         
               <ng-container matColumnDef="joiningDate">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Joining Date</th>
-                <td mat-cell *matCellDef="let element"> {{element.joiningDate}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.joiningDate | date: 'yyyy/MM/dd'}} </td>
               </ng-container>
               <ng-container matColumnDef="memberNumber">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Member Number</th>

@@ -5,25 +5,40 @@
     <div class="container">
         <form [formGroup]="dashboardData">
         <div class="row ">
-          <div class="card-holder col-md-4">
+          <div class="card-holder col-md-6">
             <div class="basic-card-holder general-service-card-item">
               <h2>Total Member</h2>
               <div class="booking-detail">
-                <!-- <mat-label [value]="totalMember">{{totalMember}}</mat-label> -->
-                <p><span class="cost">{{totalMember}}</span> 
+              
+                   <p><span class="cost">{{totalMember}}</span> 
               </div>
-              <app-calender></app-calender>
+              <div class="row">
+                <div class="col-12" >
+                  <mat-form-field  class="w-100">
+                    <input matInput [matDatepicker]="picker3" placeholder="start date" formControlName="pdate">
+                    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                    <mat-datepicker #picker3></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-12">
+                  <mat-form-field class="w-100">
+                    <input matInput [matDatepicker]="picker4" placeholder="end date" formControlName="pedate">
+                    <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                    <mat-datepicker #picker4></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
               <div class="row">
                 <div class="col-md-6">
-                  <button mat-button class="border" routerLink="{{routes.viewMember}}">Clarify</button>
+                  <button mat-button class="border" (click)="getTotalmember()">Check</button>
                 </div>
                 <div class="col-md-6">
-                  <button mat-button class="border" routerLink="{{routes.createMember}}">Add</button>
+                  <!-- <button mat-button class="border" routerLink="{{routes.createMember}}">Add</button> -->
                 </div>
               </div>
             </div>
           </div>
-          <div class="card-holder col-md-4">
+          <div class="card-holder col-md-6">
             <div class="basic-card-holder general-service-card-item">
               <h2>Total Amount</h2>
               <div class="booking-detail">
@@ -32,51 +47,27 @@
                     <span class="currency">INR</span></p>
       
               </div>
-              <app-calender></app-calender>
+              <div class="row">
+                <div class="col-12" >
+                  <mat-form-field  class="w-100">
+                    <input matInput [matDatepicker]="picker1" placeholder="start date" formControlName="sdate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-12">
+                  <mat-form-field class="w-100">
+                    <input matInput [matDatepicker]="picker2" placeholder="end date" formControlName="edate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
               <div class="row">
                 <div class="col-md-6">
-                  <button mat-button class="border" routerLink="{{routes.viewSubscribe}}">Clarify</button>
+                  <button mat-button class="border" (click)="getTotalAmount()" >Check</button>
                 </div>
-                <div class="col-md-6">
-                  <button mat-button class="border" routerLink="{{routes.createSubscribe}}">Add</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-holder col-md-4">
-            <div class="basic-card-holder general-service-card-item">
-              <h2>Newly Joined(After 2020)</h2>
-              <div class="booking-detail">
-                <p><span class="cost" >{{currentYearJoined}}</span></p>
-              </div>
-              <app-calender></app-calender>
-              <div class="row">
-                <div class="col-md-6">
-                  <button mat-button class="border" routerLink="{{routes.viewMember}}">Clarify</button>
-                </div>
-                <div class="col-md-6">
-                  <button mat-button class="border" routerLink="{{routes.createMember}}">Add</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row ">
-          <div class="card-holder col-md-4">
-            <div class="basic-card-holder general-service-card-item">
-              <h2>Subscription Amount(After 2020)</h2>
-              <div class="booking-detail">
-                <p><span class="cost">{{currentYearAmount}}</span>
-                  <span class="currency">INR</span></p>
-              </div>
-              <app-calender></app-calender>
-              <div class="row">
-                <div class="col-md-6">
-                  <button mat-button class="border" routerLink="{{routes.viewSubscribe}}">Clarify</button>
-                </div>
-                <div class="col-md-6">
-                  <button mat-button class="border" routerLink="{{routes.createSubscribe}}">Add</button>
-                </div>
+
               </div>
             </div>
           </div>

@@ -36,7 +36,6 @@ export class LoginformComponent implements OnInit {
     console.log(decoded);
     var user = decoded['eid'];
     var rol = decoded['rol'];
-    alert(user+rol);
   if(user=="abdul" && rol=="admin"){
     this.router.navigate(['/dashboard']);
   }

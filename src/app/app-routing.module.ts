@@ -11,10 +11,10 @@ import { ToggleComponent } from './toggle/toggle/toggle.component';
 
 const routes: Routes = [
   {path:'',component:LoginformComponent},
-  {path: 'create-member',component: CreateMemberComponent},
-  {path: 'create-subscription',component: CreateSubscriptionComponent},
+  {path: 'create-member',component: CreateMemberComponent,canActivate:[AuthGuard]},
+  {path: 'create-subscription',component: CreateSubscriptionComponent,canActivate:[AuthGuard]},
   {path:'view-subscription',component:ViewSubscriptionComponent,canActivate:[AuthGuard]},
-  {path:'view-member',component:ViewMemberComponent},
+  {path:'view-member',component:ViewMemberComponent,canActivate:[AuthGuard]},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
   {path: '**', redirectTo: ''}   
 ];

@@ -1,86 +1,95 @@
 <app-topbar></app-topbar>
 <app-sidebar></app-sidebar>
-
 <div class="Main_content">
-       <div class="container cm-fluid" >
-            <div class="row">
-                <div class="col-md-12 no-padd">
-                    <p class="mem-head">Membership</p>
-                    <hr>
-                    <div>
-                        <form action="" [formGroup]="memberForm" >
-                            <div class="">
-                            <mat-form-field class="col-2 m-20">
-                                <mat-label>Choose a date</mat-label>
-                                <input matInput [matDatepicker]="picker" formControlName="joiningDate">
-                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width col-2 m-20" appearance="fill">
-                                <mat-label>Member Role</mat-label>
-                                <input formControlName="designation" matInput value="">
-                              </mat-form-field>
-                          <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                            <mat-label>Member Number</mat-label>
-                            <input matInput placeholder="" value="" formControlName="memberNumber">
-                            <!-- <mat-error *ngIf="memberNumber.invalid">{{gerErrorForpwd()}}</mat-error> -->
-                          </mat-form-field>
-
-                          <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                            <mat-label>Subscriber Type</mat-label>
-                            <input formControlName="subscribeType" matInput value="Yearly">
-                          </mat-form-field>
-                        </div>
-                        <div class="col-md-12">
-                            <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Member Name</mat-label>
-                                <input matInput placeholder="" value="" formControlName="memberName">
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Father Name</mat-label>
-                                <input matInput placeholder="" value="" formControlName="fatherName">
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Mobile Number</mat-label>
-                                <input matInput placeholder="" value="" formControlName="mobileNumber">
-                              </mat-form-field>
-                        </div>
-                        <div class="col-md-12">
-                            <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Whatsapp Number</mat-label>
-                                <input matInput placeholder="" value="" formControlName="whatsappNumber">
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Aadhar Number</mat-label>
-                                <input matInput placeholder="" value="" formControlName="aadharNumber">
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Permanet Address</mat-label>
-                                <input matInput placeholder="" value="" formControlName="permanentAddress">
-                              </mat-form-field>
-                        </div>
-                        <div class="col-md-12">
-                            <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Permanent City</mat-label>
-                                <input matInput placeholder="" value="" formControlName="permanentCity">
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Current Address</mat-label>
-                                <input matInput placeholder="" value="" formControlName="currentAddress">
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
-                                <mat-label>Current City</mat-label>
-                                <input matInput placeholder="" value="" formControlName="currentCity">
-                              </mat-form-field>
-                        </div>
-                        <div class="col-md-6 m-20">
-                            <button class="gr-btn inverted"  (click)="submit()">submit</button>
-                            <button class="gray-btn" (click)="clearClick()">Cancel</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
+  <div class="container cm-fluid">
+    <div class="row">
+      <div class="col-md-12 no-padd">
+        <p class="mem-head">Membership</p>
+        <hr>
+        <div>
+          <form action="" [formGroup]="memberForm">
+            <div class="">
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Member Number</mat-label>
+                <input matInput placeholder="" value="" formControlName="memberNumber">
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="example-full-width col-4 m-20">
+                <mat-label>Role</mat-label>
+                <select matNativeControl  formControlName="designation" >
+                  <option value="admin">Admin</option>
+                  <option value="editor">Editor</option>
+                  <option value="viewer">Viewer</option>
+                  <option value="other">Other</option>
+                </select>
+           
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Subscriber Type</mat-label>
+                <input formControlName="subscribeType" matInput value="Yearly">
+              </mat-form-field>
             </div>
+
+            <div class="col-md-12">
+              <mat-form-field class="col-4 m-20">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="joiningDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Member Name</mat-label>
+                <input matInput placeholder="" value="" formControlName="memberName">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Father Name</mat-label>
+                <input matInput placeholder="" value="" formControlName="fatherName">
+              </mat-form-field>
+
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput placeholder="" value="" formControlName="mobileNumber">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Whatsapp Number</mat-label>
+                <input matInput placeholder="" value="" formControlName="whatsappNumber">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Aadhar Number</mat-label>
+                <input matInput placeholder="" value="" formControlName="aadharNumber">
+              </mat-form-field>
+
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Permanet Address</mat-label>
+                <input matInput placeholder="" value="" formControlName="permanentAddress">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Permanent City</mat-label>
+                <input matInput placeholder="" value="" formControlName="permanentCity">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                <mat-label>Current Address</mat-label>
+                <input matInput placeholder="" value="" formControlName="currentAddress">
+              </mat-form-field>
+              <div class="col-md-12">
+       
+                <mat-form-field class="example-full-width col-4 m-20" appearance="fill">
+                  <mat-label>Current City</mat-label>
+                  <input matInput placeholder="" value="" formControlName="currentCity">
+                </mat-form-field>
+              </div>
+  
+            </div>
+            <div class="col-md-6 m-20">
+              <button class="gr-btn inverted" (click)="submit()">submit</button>
+              <button class="gray-btn" (click)="clearClick()">Cancel</button>
+            </div>
+          </form>
         </div>
       </div>
-
+    </div>
+  </div>
+</div>

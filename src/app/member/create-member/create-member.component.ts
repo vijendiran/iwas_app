@@ -39,7 +39,7 @@ export class CreateMemberComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
+    // debugger;
     // this.membershipForm.controls.joiningDateHdr.disable();
     // this.membershipForm.controls.memberNumberHdr.disable();
     // this.membershipForm.controls.designationHdr.disable();
@@ -48,7 +48,7 @@ export class CreateMemberComponent implements OnInit {
   }
 
   submit() {
-    debugger;
+  debugger;
     if(this.memberForm.invalid){
       return this.toastr.error("Kindly Fill the necessary field");
       // return;
@@ -76,10 +76,15 @@ export class CreateMemberComponent implements OnInit {
   clearClick(){
     this.memberForm.reset();
   }
-  getValueByMemberNumber(){
+  enableOther(){
     debugger;
+    alert("test");
+  }
+  getValueByMemberNumber(){
+    // debugger;
 
     let memNum = localStorage.getItem("editMemId");
+    if(memNum !=="null"){
     let tokens = localStorage.getItem("access_token");
     let header = new HttpHeaders().set("Authorization", "Bearer " +tokens);
     this.httpClient.get<any>(this.baseUrl+'/v1/get/member-detail?memberNumber='+memNum,{'headers':header}
@@ -100,6 +105,7 @@ export class CreateMemberComponent implements OnInit {
       // this.subscriptionForm = data;
       
     });
-
+this.clearClick();
+  }
   }
 }
