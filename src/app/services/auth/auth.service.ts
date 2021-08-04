@@ -7,12 +7,13 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(public _http:HttpClient,public router:Router, private formBuilder: FormBuilder) { }
+  constructor(public _http:HttpClient,public router:Router, private formBuilder: FormBuilder, public _toast:ToastrService) { }
   baseUrl = environment.baseUrl;
   postId:any;
   memberForm:FormGroup;
@@ -28,7 +29,11 @@ export class AuthService {
     this._http.post<{accessToken:  string}>(this.baseUrl+"/login",loginData).subscribe(data => {
       localStorage.setItem('access_token', data.accessToken);
     this.decodeToken();
-    })
+    },
+    (error) => {                              //Error callback
+      this._toast.error('Not a Valid User');
+    }
+    )
 }
 decodeToken(){
   let gettoken = localStorage.getItem("access_token");
@@ -36,9 +41,11 @@ decodeToken(){
   console.log(decoded);
   var user = decoded['eid'];
   var rol = decoded['rol'];
-  alert(user+rol);
 if(user=="abdul" && rol=="admin"){
   this.router.navigate(['/dashboard']);
+}
+else{
+  this.router.navigate(['/view-subscription']);
 }
   
 }

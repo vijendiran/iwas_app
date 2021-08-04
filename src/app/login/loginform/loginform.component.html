@@ -1,11 +1,11 @@
 <app-toolbar></app-toolbar>
 <div class="container-fluid resHome">
-<div class="container">
+<div class="container center-login">
 <div class="row">
     <div class="col-md-4 inverted">
         <div class="text-center">
             <img src="assets/img/logo.png" alt="" class="img-fluid">
-            <h2 class="text-center">{{ 'login.welcome' | translate}}</h2>
+            <h2 class="text-center welcome-txt">{{ 'login.welcome' | translate}}</h2>
         </div>
         
         <div>
@@ -27,8 +27,8 @@
                     </mat-form-field>
                   </div>
                   <div>
-                      <p> 
-                        <a (click)="onForgotPasswordClick($event)" class="text-decoration-none text-dark">{{ 'login.fPassword' | translate}}</a></p>
+                      <p class="text-left"> 
+                        <a (click)="onForgotPasswordClick($event)" class="text-decoration-none fpwd">{{ 'login.fPassword' | translate}}</a></p>
                    <button mat-raised-button type="submit" color="primary" class="w-100 p-2 iwas-btn">{{ 'login.signin' | translate}}</button>
                       </div>
            

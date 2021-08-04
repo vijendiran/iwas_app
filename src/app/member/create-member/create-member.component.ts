@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import {FormControl, Validators,FormGroup,FormArray, FormBuilder} from '@angular/forms';
 import { LanguageService } from 'src/app/services/language.service';
@@ -6,6 +6,7 @@ import { observable } from 'rxjs';
 import { HttpClient,HttpHeaders} from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment.prod';
+import {FormGroupDirective } from '@angular/forms';
 @Component({
   selector: 'app-create-member',
   templateUrl: './create-member.component.html',
@@ -17,7 +18,7 @@ export class CreateMemberComponent implements OnInit {
   private data:any = []
   baseUrl = environment.baseUrl;
   token:any;
-  //date = new FormControl(new Date());
+  @ViewChild(FormGroupDirective) formGroupDirective: FormGroupDirective;
   constructor(private formBuilder : FormBuilder,
     private httpClient: HttpClient,private toastr: ToastrService) {
       
@@ -68,13 +69,14 @@ export class CreateMemberComponent implements OnInit {
         }else{
           this.toastr.error("Member Number Already Exist Check the member sheet");
         }
-        this.clearClick();
+        this.clearForms();
       }
       
     });
   }
-  clearClick(){
-    this.memberForm.reset();
+  clearForms(){
+    setTimeout(() => 
+        this.formGroupDirective.resetForm(), 0)
   }
   enableOther(){
     debugger;
@@ -105,7 +107,7 @@ export class CreateMemberComponent implements OnInit {
       // this.subscriptionForm = data;
       
     });
-this.clearClick();
+this.clearForms();
   }
   }
 }

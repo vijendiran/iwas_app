@@ -12,7 +12,7 @@ import {DatePipe} from '@angular/common';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit,AfterViewInit {
   dashboardData: FormGroup;
   totalMember: string;
   totalAmount : string;
@@ -42,7 +42,6 @@ export class DashboardComponent implements OnInit {
   }
 
 getTotalAmount(){
-  debugger;
   let tokens = localStorage.getItem("access_token");
   let header = new HttpHeaders().set("Authorization", "Bearer " +tokens);
   
@@ -54,11 +53,10 @@ getTotalAmount(){
   let eyear=totalend.getFullYear();
 
   this.httpClient.get<any>(this.baseUrl+'/v1/get/dashboard/total-amount?fromYear='+syear+'&toYear='+eyear,{'headers':header}).subscribe(data => {
-
     console.log(data);
     this.dashboardData.controls.totalAmount.setValue(data.message);
     this.totalAmount=data.message;
-   
+    localStorage.setItem("totalAmount",data.message);
   }) 
 }
 getTotalmember(){
@@ -67,16 +65,30 @@ getTotalmember(){
   let totalend = this.dashboardData.value.pedate;
   let tokens = localStorage.getItem("access_token");
   let header = new HttpHeaders().set("Authorization", "Bearer " +tokens);
-  // var sdate = new Date("2/1/2014");
+  
+  let checkMem = localStorage.getItem("totalMember");
+  this.dashboardData.controls.totalMember.setValue(checkMem);
+
+
+
   var sdate = new Date(totalends).getFullYear()+'-'+("0"+(new Date(totalends).getMonth()+1)).slice(-2)+'-'+("0"+new Date(totalends).getDate()).slice(-2);
   var eyear = new Date(totalend).getFullYear()+'-'+("0"+(new Date(totalend).getMonth()+1)).slice(-2)+'-'+("0"+new Date(totalend).getDate()).slice(-2);
 
   this.httpClient.get<any>(this.baseUrl+'/v1/get/dashboard/total-member?fromDate='+sdate+'&toDate='+eyear,{'headers':header}).subscribe(data => {
 
-    console.log(data);
-    this.dashboardData.controls.totalMember.setValue(data.message);
-    this.totalMember=data.message;
-  })    
-}
+  console.log(data);
+  this.dashboardData.controls.totalMember.setValue(data.message);
+  this.totalMember=data.message;
+  localStorage.setItem("totalMember",data.message);
+  localStorage.setItem("TmSdate",sdate);
+  localStorage.setItem("TmEdate",eyear);
 
+  })  
+
+ 
+}
+ngAfterViewInit(){
+debugger;
+this.getTotalmember();
+}
 }

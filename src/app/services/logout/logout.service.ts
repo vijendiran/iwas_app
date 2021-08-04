@@ -10,11 +10,7 @@ export class LogoutService {
     document.querySelectorAll(".inverted").forEach((result) => {
       result.classList.remove("invert");
       });
-    localStorage.removeItem("user");
-    localStorage.removeItem("theme");
-    localStorage.removeItem("language");
-    this.router.navigate(['**'])
-   localStorage.removeItem('access_token');
-  localStorage.removeItem('eid');
+  localStorage.clear();
+  this.router.navigate(['**']);
   }
 }

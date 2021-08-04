@@ -29,18 +29,6 @@ export class LoginformComponent implements OnInit {
 
   }
 
-  decodeToken(){
-    debugger;
-    let gettoken = localStorage.getItem("access_token");
-    var decoded = jwt_decode(gettoken);
-    console.log(decoded);
-    var user = decoded['eid'];
-    var rol = decoded['rol'];
-  if(user=="abdul" && rol=="admin"){
-    this.router.navigate(['/dashboard']);
-  }
-    
-  }
   userId = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
   gerErrorForpwd(){
@@ -61,7 +49,13 @@ export class LoginformComponent implements OnInit {
 
   onsubmitsform(){
     debugger;
+    if(this.userForm.valid){
   this._authservice.checkvalidation(this.userForm.value);
+
+    }
+    else{
+      this.toastr.error("Please enter username & password");
+    }
 }
   submitForm(){
     debugger;
@@ -70,8 +64,6 @@ export class LoginformComponent implements OnInit {
      this._authservice.Checklogin(this.userForm.value).subscribe(data=>{
       if (this.userForm.valid) {
         console.log("success",JSON.stringify(data));
-        // localStorage.setItem("userInformation",JSON.stringify(data));
-        // this.router.navigate(['/dashboard']);
         return;
     }
 
@@ -91,7 +83,7 @@ export class LoginformComponent implements OnInit {
   onForgotPasswordClick(event){
     event.preventDefault();
     event.stopPropagation();
-    this.toastr.info("Contact System Admin")
+    this.toastr.info("Contact Admin")
     }
   
 }

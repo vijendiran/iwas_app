@@ -24,3 +24,8 @@ table.mat-table{
 .d-monly{
     display: none;
 }
+tr:nth-child(even) {background-color: #f2f2f2;}
+table{width: 120% !important;overflow-x: scroll;}
+td{
+    padding: 10px;
+}

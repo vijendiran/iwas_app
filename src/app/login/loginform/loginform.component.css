@@ -11,10 +11,6 @@
     .mat-form-field-appearance-fill .mat-form-field-flex{
         background-color: red !important;
     }
-    select{
-        border: none;
-        outline: none;
-    }
     .padd-20{
         padding: 0 20px;
     }
@@ -27,4 +23,37 @@
 .resHome{
     height:100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.fpwd{
+    color: #333;
+}
+.fpwd:hover{
+    color: #087335;
+    cursor: pointer;
+}
+
+.text-left{
+    margin: 10px 0 20px 0;
+}
+@media only screen and (max-width:768px){
+    .welcome-txt{
+        padding: 30px;
+        font-size: 25px;
+    }
+    .text-left{
+        text-align: left;
+        padding: 15px 0;
+    }
+    .center-login{
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .resHome{
+        display: table;
+    }
 }
