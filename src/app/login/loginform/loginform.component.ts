@@ -57,6 +57,11 @@ export class LoginformComponent implements OnInit {
       this.toastr.error("Please enter username & password");
     }
 }
+keyDownFunction(event) {
+  if (event.keyCode === 13) {
+   this.onsubmitsform();
+  }
+}
   submitForm(){
     debugger;
     console.log(this.userForm.value);

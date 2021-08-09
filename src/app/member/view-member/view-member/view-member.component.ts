@@ -15,7 +15,8 @@ import { Router } from '@angular/router';
   templateUrl: './view-member.component.html',
   styleUrls: ['./view-member.component.css']
 })
-export class ViewMemberComponent implements AfterViewInit {
+export class ViewMemberComponent implements AfterViewInit,OnInit {
+  public edited = false;
   displayedColumns: string[] = ['joiningDate', 'memberNumber', 'designation'
   , 'memberName', 'fatherName', 'permanentAddress'
   , 'permanentCity', 'mobileNumber', 'whatsappNumber'
@@ -28,7 +29,18 @@ constructor(private formBuilder : FormBuilder
   ,private httpClient: HttpClient, public toastr:ToastrService,public _auth:AuthService,public _router:Router) {
 
 }
+ngOnInit(){
+  debugger;
+  this.isAdmin();
+}
+isAdmin(){
+  debugger;
+  let role = localStorage.getItem("role");
+  if(role=='admin'){
+    this.edited=true;
+  }
 
+}
 onClickMem(event) {
   debugger;
   var target = event.target || event.srcElement || event.currentTarget;

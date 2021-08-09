@@ -28,7 +28,7 @@ export class AuthService {
     // Simple POST request with a JSON body and response type <any>
     this._http.post<{accessToken:  string}>(this.baseUrl+"/login",loginData).subscribe(data => {
       localStorage.setItem('access_token', data.accessToken);
-    //this.decodeToken();
+   this.decodeToken();
     this.router.navigate(['/dashboard']);
     },
     (error) => {                              
@@ -37,17 +37,18 @@ export class AuthService {
     )
 }
 decodeToken(){
+  debugger;
   let gettoken = localStorage.getItem("access_token");
   var decoded = jwt_decode(gettoken);
   console.log(decoded);
-  var user = decoded['eid'];
   var rol = decoded['rol'];
-if(user=="abdul" && rol=="admin"){
-  this.router.navigate(['/dashboard']);
+if( rol=="admin"){
+  localStorage.setItem("role","admin");
 }
-else{
-  this.router.navigate(['/view-subscription']);
+else if(rol=="viewer"){
+  localStorage.setItem("role","viewer");
 }
+
   
 }
   Checklogin(loginData:any){

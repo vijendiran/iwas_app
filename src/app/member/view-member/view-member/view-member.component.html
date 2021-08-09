@@ -94,9 +94,9 @@
                 <th mat-header-cell *matHeaderCellDef>Current City</th>
                 <td mat-cell *matCellDef="let element"> {{element.currentCity}} </td>
               </ng-container>
-              <ng-container matColumnDef="operation">
-                <th mat-header-cell *matHeaderCellDef>Operation</th>
-                <td mat-cell *matCellDef="let element"> <mat-icon (click)="onClickMem($event)" id={{element.memberNumber}}>edit</mat-icon><mat-icon (click)="myClickHandler($event)">delete</mat-icon></td>
+              <ng-container matColumnDef="operation" >
+                <th mat-header-cell *matHeaderCellDef >Operation</th>
+                <td mat-cell *matCellDef="let element"  > <mat-icon *ngIf="edited" (click)="onClickMem($event)" id={{element.memberNumber}}>edit</mat-icon><mat-icon *ngIf="edited" (click)="myClickHandler($event)">delete</mat-icon></td>
               </ng-container>
               <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

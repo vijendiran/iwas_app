@@ -9,7 +9,7 @@
         </div>
         
         <div>
-            <form action="" [formGroup]="userForm" (ngSubmit)="onsubmitsform()">
+            <form action="" [formGroup]="userForm" (ngSubmit)="onsubmitsform()" (keydown)="keyDownFunction($event)">
                   <div class="example-container">
                     <mat-form-field appearance="fill" class="full-form">
                       <mat-label>{{ 'login.euName' | translate}}</mat-label>
