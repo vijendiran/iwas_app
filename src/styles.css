@@ -28,9 +28,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         display: block !important;
         width: 100% !important;
     }
-    nav{
-        display: none !important;
-    }
 }
 .mat-drawer-inner-container{
     background: #f2f2f2 !important;
@@ -81,7 +78,19 @@ background: #fff;
         bottom: 23px !important;
         display: block !important;
     }
-   .navbar{
+    .m-nav{
+        position: absolute !important;
+        background: #fff !important;
+        z-index: 99999 !important;
+        box-shadow: 1px 0px 4px 0px #00000059 !important;
+        padding: 20px !important;
+        margin: 20px 0px !important;
+        width: 91% !important;
+    }
+    .dropdown-item.active, .dropdown-item:active{
+        background-color: #333 !important;
+    }
+   /* .navbar{
        padding: 0 !important;
        position: absolute !important;
        display: flex !important;
@@ -93,7 +102,7 @@ background: #fff;
    }
    .navbar-nav{
        background-color: #fff !important;
-   }
+   } */
   }
   .remove-margin {
     margin-left: 0 !important;

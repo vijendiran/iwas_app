@@ -28,9 +28,10 @@ export class AuthService {
     // Simple POST request with a JSON body and response type <any>
     this._http.post<{accessToken:  string}>(this.baseUrl+"/login",loginData).subscribe(data => {
       localStorage.setItem('access_token', data.accessToken);
-    this.decodeToken();
+    //this.decodeToken();
+    this.router.navigate(['/dashboard']);
     },
-    (error) => {                              //Error callback
+    (error) => {                              
       this._toast.error('Not a Valid User');
     }
     )

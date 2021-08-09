@@ -48,6 +48,7 @@ export class SidebarComponent implements OnInit {
 
 // following are the code to change sidebar button(optional)
  menuBtnChange() {
+   debugger;
   let sidebar = document.querySelector(".sidebar");
   
 let closeBtn = document.querySelector("#btn");
